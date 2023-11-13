@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'RND Project Element of Flutter',
+      title: 'RND Project Element of Flutter- This is Code Practice Project',
       home: HomeScreen(),
     );
   }
