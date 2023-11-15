@@ -39,6 +39,7 @@ class _ExpandableContainerScreenState extends State<ExpandableContainerScreen> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
+                          SizedBox(height: 10,),
                           if (showFirstText)
                             const Text(
                               'Hide The Order Form',
@@ -53,12 +54,15 @@ class _ExpandableContainerScreenState extends State<ExpandableContainerScreen> {
                         ],
                       ),
                       Spacer(),
-                      SizedBox(
-                        child: IconButton(
-                          icon: isFirstIcon ? Icon(Icons.account_circle) : Icon(Icons.hide_image),
-                          onPressed: (){
-                            toggleContent();
-                          },
+                      Padding(
+                        padding: const EdgeInsets.all(0.0),
+                        child: SizedBox(
+                          child: IconButton(
+                            icon: isFirstIcon ? Icon(Icons.account_circle) : Icon(Icons.hide_image),
+                            onPressed: (){
+                              toggleContent();
+                            },
+                          ),
                         ),
                       ),
                     ],
