@@ -1355,61 +1355,8 @@ class _OrderScVesibilityTableState extends State<OrderScVesibilityTable> {
                       ),
                     ),
                   ),
-
-
                 ],
               ),
-
-
-              // Center(
-              //   child: Visibility(
-              //     visible: showFirstBox,
-              //     child: Container(
-              //       width: 200,
-              //       height: 100,
-              //       color: Colors.red,
-              //       child: Center(
-              //         child: Text('First SizeBox'),
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              // SizedBox(height: 10,),
-
-
-
-
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     // Preview Button
-              //     TextButton(
-              //       onPressed: () {
-              //         // Show the first SizeBox and the Submit button
-              //         setState(() {
-              //           showFirstBox = true;
-              //           showSubmitButton = true;
-              //         });
-              //       },
-              //       child: Text('Preview'),
-              //     ),
-              //
-              //     // Submit Button (Initially Hidden)
-              //     Visibility(
-              //       visible: showSubmitButton,
-              //       child: TextButton(
-              //         onPressed: () {
-              //           // Handle submit button press
-              //           print('Submit button pressed');
-              //         },
-              //         child: Text('Submit'),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-
-
-
             ],
           ),
         ),

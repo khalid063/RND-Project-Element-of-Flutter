@@ -6,10 +6,29 @@ import 'package:rnd_project_element_of_flutter/rnd_folder_01/expendable_containe
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/order_sc_visibility_table/order_sc_visibility_table.dart';
 
 
+import 'package:flutter/material.dart';
+
+
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/order_sc_visibility_table/order_screen_visibility_container_screen.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/text_form_field_only_bottom_line/text_form_field_only_bottom_line.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
+  FlutterNativeSplash.remove();
 }
+
+// void main() async {
+//   await Future.delayed(const Duration(milliseconds: 500)); // Changed from seconds to milliseconds
+//   runApp(const MyApp());
+// }
+
+//
+// void main() {
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,13 +38,19 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'RND Project Element of Flutter - Programming Ninja',
-      home: OrderScVesibilityTable(),
+      home: OrderScreenVisibilityContainer(),
       //home: OrderScVesibilityTable(),
       //home: CustomDataTableWithMapStaticHeader(),
       //home: ExpandableContainerScreen(),
     );
   }
 }
+
+
+
+
+
+
 
 // class HomeScreen extends StatefulWidget {
 //   const HomeScreen({super.key});
