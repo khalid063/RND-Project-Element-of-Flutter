@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/castom_data_table_source/custom_data_table.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/castom_data_table_source/custom_data_table_map_static_header.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/castom_data_table_source/custom_data_table_with_map.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/castom_data_table_source/data_table_of_make_payment.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/expendable_container/expandable_container.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/order_sc_visibility_table/order_sc_visibility_table.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'RND Project Element of Flutter - Programming Ninja',
-      home: OrderScreenVisibilityContainer(),
+      home: DataTabelOfMakePayment(),
       //home: OrderScVesibilityTable(),
       //home: CustomDataTableWithMapStaticHeader(),
       //home: ExpandableContainerScreen(),

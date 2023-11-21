@@ -22,9 +22,6 @@ class _OrderScreenVisibilityContainerState extends State<OrderScreenVisibilityCo
     });
   }
 
-  // data table object create
-  //final DataTableSource _data = MyData();
-
   // Initially, showFirstBox and showSubmitButton are false
   bool showFirstBox = false;
   bool showSubmitButton = false;
