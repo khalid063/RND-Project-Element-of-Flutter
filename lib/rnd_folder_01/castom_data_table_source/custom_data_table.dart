@@ -15,9 +15,9 @@ class _CustomDataTableSourceState extends State<CustomDataTableSource> {
   //   // Add more rows as needed
   // ];
   List<List<String>> _rowsData = [
-    ['1', 'John Doe', 'Data1', 'Data2', 'Data3', 'Data4', 'Data5'],
-    ['2', 'Jane Doe', 'Data1', 'Data2', 'Data3', 'Data4', 'Data5'],
-    ['3', 'Jane Doe', 'Data1', 'Data2', 'Data3', 'Data4', 'Data5'],
+    ['1', 'John Doe', 'Data1', 'Data2', 'Data6', 'Data4', 'Data5'],
+    ['2', 'Jane Doe', 'Data1', 'Data2', 'Data7', 'Data4', 'Data5'],
+    ['3', 'Jane Doe', 'Data1', 'Data2', 'Data9', 'Data4', 'Data5'],
     ['4', 'Jane Doe', 'Data1', 'Data2', 'Data3', 'Data4', 'Data5'],
     ['5', 'Jane Doe', 'Data1', 'Data2', 'Data3', 'Data4', 'Data5'],
     ['6', 'Jane Doe', 'Data1', 'Data2', 'Data3', 'Data4', 'Data5'],
