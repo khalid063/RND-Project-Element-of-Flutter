@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/animate_page_route_transition/animate_page_route_transition.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/castom_data_table_source/custom_data_table.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/castom_data_table_source/custom_data_table_map_static_header.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/castom_data_table_source/custom_data_table_with_map.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/castom_data_table_source/data_table_of_make_payment.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/expendable_container/expandable_container.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/order_sc_visibility_table/order_sc_visibility_table.dart';
-
-
 import 'package:flutter/material.dart';
 
 
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/order_sc_visibility_table/order_screen_visibility_container_screen.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/search/search_by_customer_name.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/shared_preference.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/shared_preference_2.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/shared_preference_3.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/shared_preference_4.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/shared_preference_5.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/shared_preference_6.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/text_form_field_only_bottom_line/text_form_field_only_bottom_line.dart';
 
 void main() {
@@ -38,10 +35,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'RND Project Element of Flutter - Programming Ninja',
-      home: SearchByCustomerName(),
+      //home: SharedPreferenceScreenTwo(),
+      home: SharedPreferenceSix(),
       //home: OrderScVesibilityTable(),
       //home: CustomDataTableWithMapStaticHeader(),
       //home: ExpandableContainerScreen(),
