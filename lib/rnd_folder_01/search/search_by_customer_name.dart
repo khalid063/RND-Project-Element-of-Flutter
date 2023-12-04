@@ -9,7 +9,7 @@ class SearchByCustomerName extends StatefulWidget {
 
 class _SearchByCustomerNameState extends State<SearchByCustomerName> {
 
-  List<Map<String, String>> customerListModel = [
+  List<Map<String, dynamic>> customerListModel = [
     {"cusname": "XYZ TRADING", "phone": "0567726404", "division": "Rajshahi"},
     {"cusname": "SHAHIN TRADING", "phone": "0567726404", "division": "Rajshahi"},
     {"cusname": "MOHAMMED ABU BAKAR TRADING", "phone": "0567726404", "division": "Dhaka"},
@@ -18,44 +18,26 @@ class _SearchByCustomerNameState extends State<SearchByCustomerName> {
   ];
 
   ///======================================== data filter with Customer Name ========================================///
-  List<Map<String, String>> filteredCustomers = [];
+  List<Map<String, dynamic>> filteredCustomers = [];
   @override
   void initState() {
     filteredCustomers = customerListModel;
     super.initState();
-
   }
-
-
-
-  // void filterCustomers(String keyword) {
-  //   setState(() {
-  //     filteredCustomers = customerListModel
-  //         .where((customer) =>
-  //         customer['cusname']!.toLowerCase().contains(keyword.toLowerCase()))
-  //         .toList();
-  //   });
-  // }
-
-
   void filterCustomers(String keyword) {
-    List<Map<String, String>> result = [];
+    List<Map<String, dynamic>> result = [];
+    if (keyword.isEmpty) {
+      // If the search box is empty, show all data
+      result = customerListModel;
+    } else {
+      // If there is a search term, filter data based on that term
+      result = customerListModel
+          .where((customer) =>
+          customer['cusname']!.toLowerCase().contains(keyword.toLowerCase()))
+          .toList();
+    }
     setState(() {
-      if (keyword.isEmpty) {
-        // If the search box is empty, show all data
-        result = customerListModel;
-      } else {
-        // If there is a search term, filter data based on that term
-        result = customerListModel
-            .where((customer) =>
-            customer['cusname']!.toLowerCase().contains(keyword.toLowerCase()))
-            .toList();
-      }
-
-      setState(() {
-        filteredCustomers = result;
-      });
-
+      filteredCustomers = result;
     });
   }
 
@@ -69,9 +51,9 @@ class _SearchByCustomerNameState extends State<SearchByCustomerName> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
-                onChanged: (value) {
-                  filterCustomers(value);
-                },
+                onChanged: (value) {                    ///*** New add  set length of new List with Map
+                  filterCustomers(value);               ///*** New add  set length of new List with Map
+                },                                      ///*** New add  set length of new List with Map
                 decoration: InputDecoration(
                   labelText: 'Search by cusname',
                   border: OutlineInputBorder(),
@@ -80,16 +62,16 @@ class _SearchByCustomerNameState extends State<SearchByCustomerName> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: filteredCustomers.length,
+                itemCount: filteredCustomers.length,                            ///*** New add  set length of new List with Map
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(filteredCustomers[index]['cusname'] ?? ''),
+                    title: Text(filteredCustomers[index]['cusname'] ?? ''),     ///*** New add  set length of new List with Map
                     subtitle: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(filteredCustomers[index]['phone'] ?? ''),
-                        Text(filteredCustomers[index]['division'] ?? ''),
+                        Text(filteredCustomers[index]['phone'] ?? ''),          ///***  New add set length of new List with Map
+                        Text(filteredCustomers[index]['division'] ?? ''),        ///***  New add set length of new List with Map
                       ],
                     ),
                     onTap: () {
