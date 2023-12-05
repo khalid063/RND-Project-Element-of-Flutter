@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/auto_serial_number_create/auto_serial_number_create.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/auto_serial_number_create/auto_serial_number_create_2.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/order_sc_visibility_table/order_screen_visibility_container_screen.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/search/search_by_customer_name.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/shared_preference.dart';
@@ -39,7 +41,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'RND Project Element of Flutter - Programming Ninja',
       //home: SharedPreferenceScreenTwo(),
-      home: SharedPreferenceSix(),
+      home: AutoSerialNumberCreateTwo(),
+      //home: SharedPreferenceSix(),
       //home: OrderScVesibilityTable(),
       //home: CustomDataTableWithMapStaticHeader(),
       //home: ExpandableContainerScreen(),
