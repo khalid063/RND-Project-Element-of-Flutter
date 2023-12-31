@@ -13,12 +13,12 @@ import 'package:flutter/material.dart';
 //   }
 // }
 
-class ProductListScreenFive extends StatefulWidget {
+class ProductListScreenSix extends StatefulWidget {
   @override
-  _ProductListScreenFiveState createState() => _ProductListScreenFiveState();
+  _ProductListScreenSixState createState() => _ProductListScreenSixState();
 }
 
-class _ProductListScreenFiveState extends State<ProductListScreenFive> {
+class _ProductListScreenSixState extends State<ProductListScreenSix> {
   String _selectedItem = 'Select an item';
 
   @override
@@ -27,23 +27,12 @@ class _ProductListScreenFiveState extends State<ProductListScreenFive> {
       appBar: AppBar(
         title: Text('Home Screen'),
         actions: [
-          IconButton(onPressed: (){
-            _openSearchScreen(context);
-          }, icon: Icon(Icons.search),),
-          // PopupMenuButton(
-          //   icon: Icon(Icons.search),
-          //   onSelected: (value) {
-          //     _openSearchScreen(context);
-          //   },
-          //   itemBuilder: (BuildContext context) {
-          //     return [
-          //       PopupMenuItem(
-          //         value: 'search',
-          //         child: Text('Search'),
-          //       ),
-          //     ];
-          //   },
-          // ),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              productSearchPopUp(context);
+            },
+          ),
         ],
       ),
       body: Center(
@@ -52,9 +41,12 @@ class _ProductListScreenFiveState extends State<ProductListScreenFive> {
     );
   }
 
-  _openSearchScreen(BuildContext context) async {
-    final result = await Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => SearchableList()),
+  Future<void> productSearchPopUp(BuildContext context) async {
+    final result = await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return SearchableListScreen();
+      },
     );
 
     if (result != null && result is String) {
@@ -63,14 +55,15 @@ class _ProductListScreenFiveState extends State<ProductListScreenFive> {
       });
     }
   }
+
 }
 
-class SearchableList extends StatefulWidget {
+class SearchableListScreen extends StatefulWidget {
   @override
-  _SearchableListState createState() => _SearchableListState();
+  _SearchableListScreenState createState() => _SearchableListScreenState();
 }
 
-class _SearchableListState extends State<SearchableList> {
+class _SearchableListScreenState extends State<SearchableListScreen> {
   List<Map<String, String>> _originalData = [
     {"xitem": "10001", "xdesc": "LPG Alu", "xstdprice": "110.83", "xunitsel": "Kg"},
     {"xitem": "10002", "xdesc": "LPG Ata", "xstdprice": "684.83", "xunitsel": "Pcs"},
@@ -92,8 +85,8 @@ class _SearchableListState extends State<SearchableList> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return AlertDialog(
+      title: AppBar(
         title: TextField(
           controller: _searchController,
           onChanged: (value) {
@@ -113,14 +106,14 @@ class _SearchableListState extends State<SearchableList> {
           ),
         ],
       ),
-      body: ListView.builder(
+      content: ListView.builder(
         itemCount: _filteredData.length,
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(_filteredData[index]['xdesc'] ?? ''),
             subtitle: Text('Price: ${_filteredData[index]['xstdprice']}'),
             onTap: () {
-              // Pass the selected item back to the home screen
+              // Pass the selected item back to the calling screen
               Navigator.of(context).pop(_filteredData[index]['xdesc']);
             },
           );
