@@ -11,6 +11,8 @@ class _SalseTypeCraditOptionAddState extends State<SalseTypeCraditOptionAdd> {
 
   final TextEditingController _paidAmountTEController = TextEditingController();
 
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();    ///*** 3nd work for from validation
+
   ///---------------------------------------- List of Salse Type Dropdown Button -----------------------------------------------------///
   String? salseTypeselectedItem = 'Cash';
   List <String> listItem = ["Cash", "Card", "Both", "Cradit"];
@@ -28,120 +30,148 @@ class _SalseTypeCraditOptionAddState extends State<SalseTypeCraditOptionAdd> {
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Center(
-            child: Column(
-              children: [
-                ///------------------------------ Sales Type Field ---------------------------------------------------------///
-                Row(
-                  children: [
-                    const Expanded(
-                      flex: 4,
-                      child: Text(
-                        'Sales Type',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        alignment: Alignment.centerRight,
-                        //color: Colors.redAccent,
-                        child: const Text(
-                          ' : ',
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  ///------------------------------ Sales Type Field ---------------------------------------------------------///
+                  Row(
+                    children: [
+                      const Expanded(
+                        flex: 4,
+                        child: Text(
+                          'Sales Type',
                           style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      flex: 5,
-                      child: Center(
+                      Expanded(
+                        flex: 1,
                         child: Container(
-                          width: 100,
+                          alignment: Alignment.centerRight,
                           //color: Colors.redAccent,
-                          child: Center(
-                            child: DropdownButton<String>(
-                              value: salseTypeselectedItem,
-
-                              onChanged: (newValue) {
-                                setState(() {
-                                  salseTypeselectedItem = newValue!;
-                                  isCreditSelected = newValue == 'Cradit'; // Correct the value to check
-                                  if (isCreditSelected) {
-                                    // If 'Cradit' is selected, clear the text field
-                                    _paidAmountTEController.clear();
-                                  }
-                                });
-                              },
-
-                              items: listItem.map((valueItem) {
-                                return DropdownMenuItem(
-                                  value: valueItem,
-                                  child: Text(valueItem),
-                                );
-                              }).toList(),
+                          child: const Text(
+                            ' : ',
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5,),
-                ///------------------------------ Paid Amount Field --------------------------------------------------------///
-                Row(
-                  children: [
-                    const Expanded(
-                      flex: 4,
-                      child: Text(
-                        'Paid Amount',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500,
+                      Expanded(
+                        flex: 5,
+                        child: Center(
+                          child: Container(
+                            width: 100,
+                            //color: Colors.redAccent,
+                            child: Center(
+                              child: DropdownButton<String>(
+                                value: salseTypeselectedItem,
+
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    salseTypeselectedItem = newValue!;
+                                    isCreditSelected = newValue == 'Cradit'; // Correct the value to check
+                                    if (isCreditSelected) {
+                                      // If 'Cradit' is selected, clear the text field
+                                      _paidAmountTEController.clear();
+                                    }
+                                  });
+                                },
+
+                                items: listItem.map((valueItem) {
+                                  return DropdownMenuItem(
+                                    value: valueItem,
+                                    child: Text(valueItem),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                    const Expanded(
-                      flex: 1,
-                      child: Text(
-                        ':',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500,
+                    ],
+                  ),
+                  const SizedBox(height: 5,),
+                  ///------------------------------ Paid Amount Field --------------------------------------------------------///
+                  Row(
+                    children: [
+                      const Expanded(
+                        flex: 4,
+                        child: Text(
+                          'Paid Amount',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      flex: 5,
-                      child: TextFormField(
-                        controller: _paidAmountTEController,
-                        keyboardType: TextInputType.number,
-                        readOnly: isCreditSelected, // Set readOnly based on selection
-                        decoration: const InputDecoration(
-                          hintText: 'Enter Paid Amount',
-                          filled: true,
-                          fillColor: Colors.white70,
+                      const Expanded(
+                        flex: 1,
+                        child: Text(
+                          ':',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                        validator: ( String? value){
-                          if (value?.trim().isEmpty ?? true){
-                            return 'Enter Your Paid Amount';
-                          }
-                          return null;
-                        },
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 60,),
-                ///------------------------------ Submit Button ------------------------------------------------------------///
-                ElevatedButton(onPressed: (){
-                  _paidAmountTEController.clear();
-                }, child: Text('Submit'),),
-              ],
+
+                      Expanded(
+                        flex: 5,
+                        child: isCreditSelected
+                            ? Container()  // If 'Credit' is selected, hide the Paid Amount row
+                            : TextFormField(
+                          controller: _paidAmountTEController,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            hintText: 'Enter Paid Amount',
+                            filled: true,
+                            fillColor: Colors.white70,
+                          ),
+                          validator: (String? value) {
+                            if (value?.trim().isEmpty ?? true) {
+                              return 'Enter Your Paid Amount';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+
+                      // Expanded(
+                      //   flex: 5,
+                      //   child: TextFormField(
+                      //     controller: _paidAmountTEController,
+                      //     keyboardType: TextInputType.number,
+                      //     readOnly: isCreditSelected, // Set readOnly based on selection
+                      //     decoration: InputDecoration(
+                      //       hintText: isCreditSelected ? 'Not applicable' : 'Enter Paid Amount',
+                      //       filled: true,
+                      //       fillColor: Colors.white70,
+                      //     ),
+                      //
+                      //     validator: ( String? value){
+                      //       if (value?.trim().isEmpty ?? true){
+                      //         return 'Enter Your Paid Amount';
+                      //       }
+                      //       return null;
+                      //     },
+                      //   ),
+                      // ),
+                    ],
+                  ),
+                  SizedBox(height: 60,),
+                  ///------------------------------ Submit Button ------------------------------------------------------------///
+                  ElevatedButton(onPressed: (){
+                    if ( _formKey.currentState!.validate()){		///*** use this code for start validation (start)
+                      _paidAmountTEController.clear();
+                    }
+                  }, child: Text('Submit'),),
+                ],
+              ),
             )
           ),
         ),
