@@ -3,6 +3,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/get_x/get_x_calculator/my_counter.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/get_x/get_x_calculator/my_counter_2.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/get_x/get_x_calculator/my_counter_3.dart';
 
 
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       //home: SharedPreferenceScreenTwo(),
       //home: AutoSerialNumberCreateTwo(),
       //home: TimeDateScreenThree(),
-      home: MyCounterTwo(),
+      home: MyCounterThree(),
       //home: SharedPreferenceSix(),
       //home: OrderScVesibilityTable(),
       //home: CustomDataTableWithMapStaticHeader(),

@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,20 +18,21 @@ class _MyCounterTwoState extends State<MyCounterTwo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pinkAccent,
-        title: const Center(child: Text('My Counter 2'),),
+        title: const Text('My Counter 2.1'),
+        backgroundColor: Colors.pink,
+        centerTitle: true,
       ),
       body: Center(
         child: GetBuilder<CalculationController>(
           builder: (_) {
-          return Text(
-            '${_calculationController.countNumber}',
-            style: TextStyle(
-              fontSize: 80,
-              fontWeight: FontWeight.w900,
-            ),
-          );
-        }
+            return Text(
+              '${_calculationController.numberCounter}',
+              style: const TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.w900,
+              ),
+            );
+          }
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -42,10 +45,10 @@ class _MyCounterTwoState extends State<MyCounterTwo> {
 }
 
 class CalculationController extends GetxController {
-  int countNumber = 0;
+  int numberCounter = 0;
 
   void increment() {
-    countNumber++;
+    numberCounter++;
     update();
   }
 
