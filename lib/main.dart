@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/get_x/get_x_calculator/my_counter.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/get_x/get_x_calculator/my_counter_2.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/get_x/get_x_calculator/my_counter_3.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/salse_type_cradit_option_add/sales_type_cradit_option_add.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/salse_type_cradit_option_add/sales_type_cradit_option_add_2.dart';
 
 
 
@@ -35,7 +37,8 @@ class MyApp extends StatelessWidget {
       //home: SharedPreferenceScreenTwo(),
       //home: AutoSerialNumberCreateTwo(),
       //home: TimeDateScreenThree(),
-      home: MyCounterThree(),
+      home: SalseTypeCraditOptionAdd(),
+      //home: SalseTypeCraditOptionAdd2(),
       //home: SharedPreferenceSix(),
       //home: OrderScVesibilityTable(),
       //home: CustomDataTableWithMapStaticHeader(),
