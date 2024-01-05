@@ -30,7 +30,7 @@ class _PrintPdfTwoState extends State<PrintPdfTwo> {
             child: pw.Container(
               child: pw.Column(
                 children: [
-                  pw.Text('BULKCOR TRADING LLC'),
+                  pw.Text('BULKCOR TRADING LLc'),
                   pw.Text('DELIVERY VAN 1543'),
                   pw.Text('WH N0 6, JIODAH STREET, AL JURF IND AREA 3'),
                   pw.Text('AJMAN - UAE'),
