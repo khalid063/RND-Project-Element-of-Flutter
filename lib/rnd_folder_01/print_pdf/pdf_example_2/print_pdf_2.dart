@@ -108,7 +108,7 @@ class _PrintPdfTwoState extends State<PrintPdfTwo> {
                             crossAxisAlignment: pw.CrossAxisAlignment.start,
                             children: [
                               pw.Text('SHARJAH', style: pw.TextStyle(fontSize: 10)),
-                              pw.Text('Ph: 098654326', style: pw.TextStyle(fontSize: 10)),
+                              pw.Text('Ph: 01955208765', style: pw.TextStyle(fontSize: 10)),
                               pw.Text('TRN: 1009765487654', style: pw.TextStyle(fontSize: 10)),
                             ]
                         )
