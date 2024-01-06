@@ -6,58 +6,175 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/print_pdf/pdf_example_1/preview_screen.dart';
 import 'package:flutter/services.dart';
 
-class PrintPdfTwo extends StatefulWidget {
-  const PrintPdfTwo({super.key});
+class PrintPdfThree extends StatefulWidget {
+  const PrintPdfThree({super.key});
 
   @override
-  State<PrintPdfTwo> createState() => _PrintPdfTwoState();
+  State<PrintPdfThree> createState() => _PrintPdfThreeState();
 }
 
-class _PrintPdfTwoState extends State<PrintPdfTwo> {
+class _PrintPdfThreeState extends State<PrintPdfThree> {
 
-  void _createPdf() async{
+  ///---------- Create PDF new
+  void _createPdf() async {
     final doc = pw.Document();
 
-    /// for using an image from assets
-    //final image = await imageFromAssetBundle('assets/image.png');
+    // Sample product list
+    List<String> productList = [
+      'Product 1',
+      'Product 2',
+      'Product 3',
+      'Product 4',
+      'Product 5',
+      'Product 6',
+      'Product 7',
+      'Product 8',
+      'Product 9',
+      'Product 10',
+      'Product 11',
+      'Product 12',
+      'Product13',
+      'Product 14',
+      'Product 15',
+      'Product 16',
+      'Product 17',
+      'Product 18',
+      'Product 19',
+      'Product 20',
+      'Product 21',
+      'Product 22',
+      'Product 23',
+      'Product 24',
+      'Product 25',
+      'Product 26',
+      'Product 27',
+      'Product 28',
+      'Product 29',
+      'Product 30',
+      'Product 31',
+      // ... Add more products
+    ];
 
-    doc.addPage(
-      pw.Page(
-        pageFormat: PdfPageFormat.a4,
-        build: (pw.Context context) {
-          return pw.Center(
-            //child: pw.Text('Hello Delta Group'),
-            child: pw.Container(
-              child: pw.Column(
-                children: [
-                  pw.Text('BULKCOR TRADING LLC'),
-                  pw.Text('DELIVERY VAN 1543'),
-                  pw.Text('WH N0 6, JIODAH STREET, AL JURF IND AREA 3'),
-                  pw.Text('AJMAN - UAE'),
-                  pw.Text('+88 01955209050'),
-                  pw.Text('TRN : 1009654328765'),
-                  pw.Text('TAX INVOICE'),
-                ]
-              ),
-            ),
-          );
-        }
-      )
+    // Define the maximum number of products per page
+    final int productsPerPage = 10;
+
+    // Calculate the total number of pages required
+    int totalPages = (productList.length / productsPerPage).ceil();
+
+    // Fixed header content
+    final pw.Widget header = pw.Container(
+      child: pw.Column(
+        crossAxisAlignment: pw.CrossAxisAlignment.start,
+        children: [
+          pw.Text('BULKCOR TRADING LLC'),
+          pw.Text('DELIVERY VAN 1543'),
+          pw.Text('WH N0 6, JIODAH STREET, AL JURF IND AREA 3'),
+          pw.Text('AJMAN - UAE'),
+          pw.Text('+88 01955209050'),
+          pw.Text('TRN : 1009654328765'),
+          pw.Text('TAX INVOICE'),
+        ],
+      ),
     );
 
-    /// print the document using the iOs or Android print service:
-    await Printing.layoutPdf(onLayout: (PdfPageFormat formate) async => doc.save());
+    // Fixed footer content
+    final pw.Widget footer = pw.Column(
+      crossAxisAlignment: pw.CrossAxisAlignment.start,
+      children: [
+        pw.Text('Payment Mode: CREDIT', style: pw.TextStyle(fontSize: 12)),
+        pw.SizedBox(height: 5),
+        pw.Text('Balance: 144.01', style: pw.TextStyle(fontSize: 12)),
+        pw.Text('Party Balance: 144.01', style: pw.TextStyle(fontSize: 12)),
+        pw.Text('Salse Man: SUHEL MIA', style: pw.TextStyle(fontSize: 12)),
+        pw.Text('Bank Details', style: pw.TextStyle(fontSize: 12)),
+        pw.Text('Bank: DDBL', style: pw.TextStyle(fontSize: 12)),
+        pw.Text('Acc No: 1015755784701', style: pw.TextStyle(fontSize: 12)),
+        pw.Text('IFSC:', style: pw.TextStyle(fontSize: 12)),
+      ],
+    );
 
-    /// share the document to other applications:
-    //await Printing.sharePdf(bytes: await doc.save(), filename: 'my-document.pdf');
+    // Loop through each page
+    for (int currentPage = 0; currentPage < totalPages; currentPage++) {
+      doc.addPage(
+        pw.Page(
+          pageFormat: PdfPageFormat.a4,
+          build: (pw.Context context) {
+            // Calculate the start and end indices for the current page
+            int startIndex = currentPage * productsPerPage;
+            int endIndex = (currentPage + 1) * productsPerPage;
 
-    /// save PDF with Flutter library "path_provider"
-    /// need to see path provider tutorial
-    //final output = await getTemporaryDirectory();
-    // final file = File('${output.path}/example.pdf');
-    // await file.writeAsBytest(await doc.save());
+            // Ensure endIndex does not exceed the total number of products
+            if (endIndex > productList.length) {
+              endIndex = productList.length;
+            }
 
+            // Extract the products for the current page
+            List<String> productsOnPage = productList.sublist(startIndex, endIndex);
+
+            // Build the content for the current page
+            return pw.Column(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
+              children: [
+                header,  // Fixed header
+                for (String product in productsOnPage)
+                  pw.Text(product),
+                footer,  // Fixed footer
+              ],
+            );
+          },
+        ),
+      );
+    }
+
+    // Print the document using the iOS or Android print service
+    await Printing.layoutPdf(onLayout: (PdfPageFormat format) async => doc.save());
   }
+
+
+
+  // void _createPdf() async{
+  //   final doc = pw.Document();
+  //
+  //   /// for using an image from assets
+  //   //final image = await imageFromAssetBundle('assets/image.png');
+  //
+  //   doc.addPage(
+  //     pw.Page(
+  //       pageFormat: PdfPageFormat.a4,
+  //       build: (pw.Context context) {
+  //         return pw.Center(
+  //           //child: pw.Text('Hello Delta Group'),
+  //           child: pw.Container(
+  //             child: pw.Column(
+  //               children: [
+  //                 pw.Text('BULKCOR TRADING LLC'),
+  //                 pw.Text('DELIVERY VAN 1543'),
+  //                 pw.Text('WH N0 6, JIODAH STREET, AL JURF IND AREA 3'),
+  //                 pw.Text('AJMAN - UAE'),
+  //                 pw.Text('+88 01955209050'),
+  //                 pw.Text('TRN : 1009654328765'),
+  //                 pw.Text('TAX INVOICE'),
+  //               ]
+  //             ),
+  //           ),
+  //         );
+  //       }
+  //     )
+  //   );
+  //
+  //   /// print the document using the iOs or Android print service:
+  //   await Printing.layoutPdf(onLayout: (PdfPageFormat formate) async => doc.save());
+  //
+  //   /// share the document to other applications:
+  //   //await Printing.sharePdf(bytes: await doc.save(), filename: 'my-document.pdf');
+  //
+  //   /// save PDF with Flutter library "path_provider"
+  //   /// need to see path provider tutorial
+  //   //final output = await getTemporaryDirectory();
+  //   // final file = File('${output.path}/example.pdf');
+  //   // await file.writeAsBytest(await doc.save());
+  //
+  // }
 
   /// display a pdf document
   void _displayPdf() {
