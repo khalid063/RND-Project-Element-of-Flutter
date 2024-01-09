@@ -16,7 +16,7 @@ class _DropdownButtonScreenState extends State<DropdownButtonScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dropdown Button'),
+        title: Text('Dropdown Button Two'),
         centerTitle: true,
         backgroundColor: Colors.greenAccent,
       ),
@@ -30,6 +30,7 @@ class _DropdownButtonScreenState extends State<DropdownButtonScreen> {
             onChanged: (String? newValue) {
               setState(() {
                 areaSelectedValue = newValue!;
+
               });
             },
             items: areas.map<DropdownMenuItem<String>>((String value) {
