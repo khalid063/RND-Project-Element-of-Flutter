@@ -41,14 +41,14 @@ class _MyCounterThreeState extends State<MyCounterThree> {
                     onPressed: () {
                       _calculationController.increment();
                     },
-                    child: const Text('Increment'),
+                    child: const Text('Increment One'),
                   ),
                   const Spacer(),
                   ElevatedButton(
                     onPressed: () {
                       _calculationController.decrement();
                     },
-                    child: const Text('Decrement'),
+                    child: const Text('Decrement One'),
                   ),
                 ],
               ),
