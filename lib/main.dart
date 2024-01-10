@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/dropdown_button/dropdown_button_screen.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/get_x/get_x_calculator/my_calculator_4.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/print_pdf/pdf_example_2/print_pdf_2.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/print_pdf/pdf_example_3/print_pdf_3.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/salse_type_cradit_option_add/sales_type_cradit_option_add.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       //home: AutoSerialNumberCreateTwo(),
       //home: TimeDateScreenThree(),
       //home: PrintPdf(),
-      home: DropdownButtonScreen(),
+      home: MyCalculatorFour(),
       //home: SalseTypeCraditOptionAdd2(),
       //home: SharedPreferenceSix(),
       //home: OrderScVesibilityTable(),
