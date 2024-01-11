@@ -27,6 +27,11 @@ class _SharedPreferenceFiveState extends State<SharedPreferenceFive> {
 
   List<Map<String, dynamic>> savedDataList = [];
 
+  bool _isEditing = false;
+  Map<String, dynamic>? _editedData;
+  String? _editedDataKey;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,10 +162,22 @@ class _SharedPreferenceFiveState extends State<SharedPreferenceFive> {
   }
 
   void _editData(Map<String, dynamic> data) {
-    customerNameController.text = data['customerName'];
-    itemNameController.text = data['itemName'];
-    itemPriceController.text = data['itemPrice'].toString();
+    setState(() {
+      customerNameController.text = data['customerName'];
+      itemNameController.text = data['itemName'];
+      itemPriceController.text = data['itemPrice'].toString();
+    });
+
+    // Optionally, you can remove the edited data from the list if needed.
+    // savedDataList.remove(data);
   }
+
+
+  // void _editData(Map<String, dynamic> data) {
+  //   customerNameController.text = data['customerName'];
+  //   itemNameController.text = data['itemName'];
+  //   itemPriceController.text = data['itemPrice'].toString();
+  // }
 
   void _deleteData(Map<String, dynamic> data) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -170,16 +187,44 @@ class _SharedPreferenceFiveState extends State<SharedPreferenceFive> {
           (key) {
         String? dataJson = prefs.getString(key);
         Map<String, dynamic> savedData = jsonDecode(dataJson!);
-        return savedData == data;
+
+        // Compare individual fields instead of the entire Map
+        return savedData['customerName'] == data['customerName'] &&
+            savedData['itemName'] == data['itemName'] &&
+            savedData['itemPrice'] == data['itemPrice'];
       },
+      orElse: () => '', // Return an empty string if no match is found
     );
 
-    // Remove the data from SharedPreferences
-    prefs.remove(dataKey);
+    if (dataKey.isNotEmpty) {
+      // Remove the data from SharedPreferences
+      prefs.remove(dataKey);
 
-    // Refresh the displayed data after deleting
-    _readData();
+      // Refresh the displayed data after deleting
+      _readData();
+    }
   }
+
+
+
+  // void _deleteData(Map<String, dynamic> data) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //
+  //   // Find the key associated with the data to delete
+  //   String dataKey = prefs.getKeys().firstWhere(
+  //         (key) {
+  //       String? dataJson = prefs.getString(key);
+  //       Map<String, dynamic> savedData = jsonDecode(dataJson!);
+  //       return savedData == data;
+  //     },
+  //   );
+  //
+  //   // Remove the data from SharedPreferences
+  //   prefs.remove(dataKey);
+  //
+  //   // Refresh the displayed data after deleting
+  //   _readData();
+  // }
 
   void _clearData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
