@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class MyCalculatorFour extends StatefulWidget {
   const MyCalculatorFour({super.key});
@@ -10,67 +9,29 @@ class MyCalculatorFour extends StatefulWidget {
 
 class _MyCalculatorFourState extends State<MyCalculatorFour> {
 
-  //int countNumber = 0;
-  final CalculationController _calculationController = Get.put(CalculationController());
+
+  int number = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Calculator Four'),
+        title: Text('My Calculator 4.0'),
         centerTitle: true,
         backgroundColor: Colors.pinkAccent,
       ),
       body: Center(
-        child: Column(
-          children: [
-            GetBuilder<CalculationController>(
-                builder: (_) {
-                  return Text('${_calculationController.countNumber}', style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900),);
-                }
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    _calculationController.increment();
-                  },
-                  child: Text('Increment'),
-                ),
-              ),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    _calculationController.decrment();
-                  },
-                  child: Text('Drecrement'),
-                ),
-              ),
-              ],
-            )
-          ],
-        )
+        child: Text('$number', style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900),),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          number++;
+          print('Number : $number');
+          if(mounted) {
+            setState(() {});
+          }
+        },child: const Icon(Icons.add),
       ),
     );
   }
 }
-
-class CalculationController extends GetxController {
-  int countNumber = 0;
-
-  void increment() {
-    countNumber++;
-    update();
-  }
-
-  void decrment() {
-    countNumber--;
-    update();
-  }
-
-}
-
