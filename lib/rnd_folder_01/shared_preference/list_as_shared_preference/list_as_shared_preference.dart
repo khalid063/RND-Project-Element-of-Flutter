@@ -211,6 +211,25 @@ class _ListAsSharedPreferenceState extends State<ListAsSharedPreference> {
               addItemintosavedOrderList();
               print('Saved Order List Data : $savedOrderList');
             }, child: Text('Add Item'),),
+            const SizedBox(height: 20,),  // Add some spacing
+            // Display DataTable
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columns: [
+                  DataColumn(label: Text('Item Code')),
+                  DataColumn(label: Text('Item Name')),
+                  DataColumn(label: Text('Total Amount')),
+                ],
+                rows: savedOrderList.map((item) {
+                  return DataRow(cells: [
+                    DataCell(Text(item['itemCode'].toString())),
+                    DataCell(Text(item['itemName'].toString())),
+                    DataCell(Text(item['totalAmount'].toString())),
+                  ]);
+                }).toList(),
+              ),
+            )
           ],
         ),
       )
