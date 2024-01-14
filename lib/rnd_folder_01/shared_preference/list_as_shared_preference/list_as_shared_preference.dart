@@ -9,7 +9,7 @@ class ListAsSharedPreference extends StatefulWidget {
 
 class _ListAsSharedPreferenceState extends State<ListAsSharedPreference> {
 
-  ///======================================== All Variables ================================================================================///
+  ///======================================== All Variable ================================================================================///
   List<Map<String, dynamic>> savedOrderList = [];
 
   ///---------- Text Controller for taking data from TextFormField ----------///
@@ -50,7 +50,7 @@ class _ListAsSharedPreferenceState extends State<ListAsSharedPreference> {
 
 
 
-
+  ///======================================== Scaffold Part ================================================================================///
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,11 +59,12 @@ class _ListAsSharedPreferenceState extends State<ListAsSharedPreference> {
         centerTitle: true,
         backgroundColor: Colors.pinkAccent,
       ),
+      ///---------------------------------------- Body Part ------------------------------------------///
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            ///------------------------------ Item Code  ------------------------------------------///
+            ///------------------------------ Item Code  ----------------------------------------------///
             Row(
               children: [
                 Expanded(
@@ -111,7 +112,7 @@ class _ListAsSharedPreferenceState extends State<ListAsSharedPreference> {
               ],
             ),
             const SizedBox(height: 10,),
-            ///------------------------------ Item Name  ------------------------------------------///
+            ///------------------------------ Item Name  ----------------------------------------------///
             Row(
               children: [
                 Expanded(
@@ -159,7 +160,7 @@ class _ListAsSharedPreferenceState extends State<ListAsSharedPreference> {
               ],
             ),
             const SizedBox(height: 10,),
-            ///------------------------------ Total Amount  ------------------------------------------///
+            ///------------------------------ Total Amount  -------------------------------------------///
             Row(
               children: [
                 Expanded(
@@ -206,13 +207,14 @@ class _ListAsSharedPreferenceState extends State<ListAsSharedPreference> {
               ],
             ),
             const SizedBox(height: 10,),
-            ///------------------------------ Add Item Button  ------------------------------------///
+            ///------------------------------ Add Item Button  ----------------------------------------///
             ElevatedButton(onPressed: (){
               addItemintosavedOrderList();
               print('Saved Order List Data : $savedOrderList');
             }, child: Text('Add Item'),),
             const SizedBox(height: 20,),  // Add some spacing
             // Display DataTable
+            ///------------------------------ Data Table for Showing data from ------------------------///
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: DataTable(
