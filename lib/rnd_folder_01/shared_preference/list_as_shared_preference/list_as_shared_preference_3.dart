@@ -39,7 +39,7 @@ class _ListAsSharedPreferenceThreeState extends State<ListAsSharedPreferenceThre
     });
   }
 
-  ///----------Function for adding item into "savedOrderList" for RND Projecct ----------///
+  ///----------Function for adding item into "savedOrderList" for RND Project ----------///
   void addItemintosavedOrderList() {
     if (editingIndex == -1) {
       // If not editing, add a new item
@@ -115,7 +115,7 @@ class _ListAsSharedPreferenceThreeState extends State<ListAsSharedPreferenceThre
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('List as shared preference'),
+          title: Text('List as shared preference P 3'),
           centerTitle: true,
           backgroundColor: Colors.pinkAccent,
         ),
