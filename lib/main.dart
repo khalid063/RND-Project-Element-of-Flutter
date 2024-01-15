@@ -4,16 +4,6 @@ import 'package:get/get.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/dropdown_button/dropdown_button_screen.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/get_x/get_x_calculator/my_calculator_4.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/list_as_shared_preference/list_as_shared_preference_3.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/print_pdf/pdf_example_2/print_pdf_2.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/print_pdf/pdf_example_3/print_pdf_3.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/salse_type_cradit_option_add/sales_type_cradit_option_add.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/salse_type_cradit_option_add/sales_type_cradit_option_add_2.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/list_as_shared_preference/list_as_shared_preference.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/list_as_shared_preference/list_as_shared_preference_2.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/list_as_shared_preference/list_as_shared_preference_3.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/shared_preference_5.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/shared_preference_6.dart';
-import 'package:rnd_project_element_of_flutter/rnd_folder_01/shared_preference/shared_preference_7.dart';
 
 
 
@@ -39,19 +29,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'RND Project Element of Flutter - Programming Ninja',
-      //home: SharedPreferenceScreenTwo(),
-      //home: AutoSerialNumberCreateTwo(),
-      //home: TimeDateScreenThree(),
-      //home: PrintPdf(),
       home: ListAsSharedPreferenceThree(),
-      //home: SalseTypeCraditOptionAdd2(),
-      //home: SharedPreferenceSix(),
-      //home: OrderScVesibilityTable(),
-      //home: CustomDataTableWithMapStaticHeader(),
-      //home: ExpandableContainerScreen(),
     );
   }
 }
