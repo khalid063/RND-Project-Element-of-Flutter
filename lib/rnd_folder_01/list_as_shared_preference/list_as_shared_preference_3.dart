@@ -22,7 +22,7 @@ class _ListAsSharedPreferenceThreeState extends State<ListAsSharedPreferenceThre
 
   ///======================================== Function Write Area =========================================================================///
 
-  ///---------- Function of item delete ----------///
+  ///---------- Function of item delete test commit ----------///
   void deleteItem(int index) {
     setState(() {
       savedOrderList.removeAt(index);
