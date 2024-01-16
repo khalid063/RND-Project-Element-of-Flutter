@@ -32,10 +32,7 @@ class MyApp extends StatelessWidget {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'RND Project Element of Flutter - Programming Ninja',
-      home: ListAsSharedPreferenceThree(),
-    );
-  }
-}
+
 
 
 
