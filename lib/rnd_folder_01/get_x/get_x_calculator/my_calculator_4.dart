@@ -16,8 +16,11 @@ class _MyCalculatorFourState extends State<MyCalculatorFour> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppB
         title: Text('My Calculator Four'),
+=======
+        title: Text('My Calculator 4.0'),
+
         centerTitle: true,
         backgroundColor: Colors.pinkAccent,
       ),
