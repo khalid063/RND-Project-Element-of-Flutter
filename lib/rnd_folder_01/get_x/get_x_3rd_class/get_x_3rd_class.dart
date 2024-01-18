@@ -12,7 +12,7 @@ class _GetXThirdClassState extends State<GetXThirdClass> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Get X 3rd Class'),
+        title: Text('Get X 3rd Class is going on'),
       ),
     );
   }
