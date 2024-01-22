@@ -13,7 +13,7 @@ class _CustomSnakbarState extends State<CustomSnakbar> {
     return Scaffold(
       backgroundColor: Colors.greenAccent,
       appBar: AppBar(
-        title: Text('Custom Snakbar'),
+        title: Text('Custom Snakbar for Massage show'),
         centerTitle: true,
         backgroundColor: Colors.pinkAccent,
       ),
