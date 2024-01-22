@@ -38,7 +38,15 @@ class _CustomSnakbarState extends State<CustomSnakbar> {
             color: Colors.cyanAccent,
             borderRadius: BorderRadius.all(Radius.circular(10),),
           ),
-        )
+          child: Row(
+            children: [
+
+            ],
+          ),
+        ),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.transparent,
+        elevation: 3,
       ),
     );
   }
