@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/form_validation/form_validation_screen.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/get_x/get_x_3rd_class/get_x_3rd_class.dart';
 
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/list_as_shared_preference/list_as_shared_preference_3.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/list_as_shared_preference/list_as_shared_preference_4.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/snak_bar_custom/custom_scakbar.dart';
 
 
 
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'RND Project Element of Flutter - Programming Ninja',
-      home: GetXThirdClass(),
+      home: CustomSnakbar(),
     );
   }
 }
