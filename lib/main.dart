@@ -7,6 +7,9 @@ import 'package:rnd_project_element_of_flutter/rnd_folder_01/get_x/get_x_3rd_cla
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/list_as_shared_preference/list_as_shared_preference_3.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/list_as_shared_preference/list_as_shared_preference_4.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/snak_bar_custom/custom_scakbar.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/snak_bar_custom/custom_snackbar_2.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/snak_bar_custom/custom_snackbar_3.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/snak_bar_custom/custom_snackbar_4.dart';
 
 
 
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'RND Project Element of Flutter - Programming Ninja',
-      home: CustomSnakbar(),
+      home: CustomSnackbarFour(),
     );
   }
 }

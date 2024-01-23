@@ -8,37 +8,7 @@ class CustomSnakbar extends StatefulWidget {
 }
 
 class _CustomSnakbarState extends State<CustomSnakbar> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white70,
-      appBar: AppBar(
-        title: Text('Custom Snakbar for Massage show'),
-        centerTitle: true,
-        backgroundColor: Colors.pinkAccent,
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            const SizedBox(height: 120,),
-            ElevatedButton(
-              onPressed: () {
-                _successMassage(context);
-              },
-              child: Text('Click to show Massage'),
-            ),
-            const SizedBox(height: 20,),
-            ElevatedButton(
-              onPressed: () {
-                _successMassage(context);
-              },
-              child: Text('Click to show Massage'),
-            ),
-          ],
-        )
-      ),
-    );
-  }
+
 
   _successMassage(BuildContext context) {
     return ScaffoldMessenger.of(context).showSnackBar(
@@ -118,6 +88,37 @@ class _CustomSnakbarState extends State<CustomSnakbar> {
     );
   }
 
-
-
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white70,
+      appBar: AppBar(
+        title: Text('Custom Snakbar for Massage show'),
+        centerTitle: true,
+        backgroundColor: Colors.pinkAccent,
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            const SizedBox(height: 120,),
+            ElevatedButton(
+              onPressed: () {
+                _successMassage(context);
+              },
+              child: Text('Click to show Massage'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                _errorMassage(context);
+              },
+              child: Text('Click to show Massage'),
+            ),
+          ],
+        )
+      ),
+    );
+  }
 }
+
+
