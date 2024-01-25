@@ -37,10 +37,10 @@ class MyForm extends StatelessWidget {
               textAlignVertical: TextAlignVertical.bottom, // Set this property
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: moveCursorToEnd, // Call the function when the button is pressed
-              child: Text('Move Cursor to End'),
-            ),
+            // ElevatedButton(
+            //   onPressed: moveCursorToEnd, // Call the function when the button is pressed
+            //   child: Text('Move Cursor to End'),
+            // ),
           ],
         ),
       ),
