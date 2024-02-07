@@ -6,37 +6,64 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 
 
-class DatePopupTwo extends StatefulWidget {
+class DatePopupThree extends StatefulWidget {
   @override
-  _DatePopupTwoState createState() => _DatePopupTwoState();
+  _DatePopupThreeState createState() => _DatePopupThreeState();
 }
 
-class _DatePopupTwoState extends State<DatePopupTwo> {
-
-
-  TextEditingController _dateContorller = TextEditingController();
+class _DatePopupThreeState extends State<DatePopupThree> {
+  TextEditingController _dateController = TextEditingController();
   DateTime? _selectedDate;
-  
-  
+  String testDate = '';
+
   Future<void> _selectDate() async {
-    DateTime? _picked = await showDatePicker(
+    DateTime? picked = await showDatePicker(
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime(2000),
         lastDate: DateTime(2100)
     );
 
-    if (_picked != null){
+    if (picked != null) {
       setState(() {
-        _dateContorller.text = _picked.toString().split(" ")[0];
+        _selectedDate = picked;
+        print('Picked Data : $_selectedDate');
+        _dateController.text = _selectedDate!.toString().split(" ")[0];
+        testDate = _selectedDate!.toString().split(" ")[0];
+        print('Picked Data 001 : $testDate');
       });
     }
 
   }
 
+  void _showSelectedDate() {
+    if (_selectedDate != null) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Selected Date'),
+            content: Text(_selectedDate!.toString().split(" ")[0]),
+            actions: <Widget>[
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _dateController.clear();
+                    _selectedDate = null;
+                  });
+                  Navigator.of(context).pop();
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Date Picker Example'),
@@ -84,20 +111,17 @@ class _DatePopupTwoState extends State<DatePopupTwo> {
                   child: SizedBox(
                     height: 45,
                     child: TextFormField(
-                      controller: _dateContorller,
+                      controller: _dateController,
                       readOnly: true,
                       decoration: InputDecoration(
-                        //hintText: 'Pick A Date',
-                        //labelText: 'DATE',
                         filled: true,
                         fillColor: Colors.cyanAccent,
                         prefixIcon: Icon(Icons.calendar_today),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue)
-                        )
+                          borderSide: BorderSide(color: Colors.blue),
+                        ),
                       ),
                       onTap: () {
-                        //_selectDate(context);
                         _selectDate();
                       },
                     ),
@@ -106,12 +130,15 @@ class _DatePopupTwoState extends State<DatePopupTwo> {
               ],
             ),
             SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: _showSelectedDate,
+              child: Text('Show Date'),
+            ),
           ],
         ),
       ),
     );
-
-
   }
 }
+
 
