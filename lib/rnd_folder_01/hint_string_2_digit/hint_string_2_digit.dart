@@ -19,6 +19,40 @@ import 'package:flutter/services.dart';
 //   }
 // }
 
+
+///--- *** (Very Important) Function of Rate Per Unit Calculation (  SetupRate() function value * user given Pcs Per Unit Value ) ---///
+// double ratePerUnitCalculationValeAfterUserInput = 0.0;
+// void ratePerUnitCalculation() {
+//   // Calculate setup rate
+//   //double setupRate = SetupRate();
+//   // Convert string value to double for _selectedItemPecPerUnit
+//   double selectedItemPecPerUnit = double.tryParse(_selectedItemPecPerUnit) ?? 0.0;
+//
+//   // Perform the multiplication
+//   //double result = selectedItemPecPerUnit * returnSetupResult;
+//   //ratePerUnitCalculationValeAfterUserInput = selectedItemPecPerUnit * returnSetupResult;
+//
+///   double _temporaryPrice = selectedItemPecPerUnit * returnSetupResult;
+///   ratePerUnitCalculationValeAfterUserInput = double.parse(_temporaryPrice.toStringAsFixed(2)); // For only show 2 digit after ( . )
+//
+//
+//   // Update the TextEditingController with the calculated value
+//   _ratePerPcsTEController.text = ratePerUnitCalculationValeAfterUserInput.toString();
+//   _selectedItemRatePerPcs = ratePerUnitCalculationValeAfterUserInput.toString(); // Adding for make Calculation Of "calculateValuesOfPrice()" Function
+//   // Show into Select Item Form "Price" Field
+//
+//   _selectedItemRatePerPcsDoubleValue = double.parse(_selectedItemRatePerPcs);  // For add data into "Custome Data Table"
+//
+//
+//   print('Setup Rate: $returnSetupResult');
+//   print('Selected Item Pcs Per Unit by User : $selectedItemPecPerUnit');
+//   print('Final calculation result: $ratePerUnitCalculationValeAfterUserInput');
+//
+// }
+
+
+
+
 class HintStringTwoDigit extends StatefulWidget {
   @override
   _HintStringTwoDigitState createState() => _HintStringTwoDigitState();

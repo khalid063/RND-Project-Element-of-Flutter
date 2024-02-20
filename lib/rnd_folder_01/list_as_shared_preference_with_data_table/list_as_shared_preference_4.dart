@@ -113,6 +113,39 @@ class _ListAsSharedPreferenceFourState extends State<ListAsSharedPreferenceFour>
   ///======================================== Scaffold Part ================================================================================///
   @override
   Widget build(BuildContext context) {
+
+
+    int _calculateMaxLines(String itemName) {
+      // Split the item name into words
+      List<String> words = itemName.split(' ');
+
+      // Determine the number of lines based on the number of words
+      if (words.length > 6) {
+        return 4; // More than 6 words, set max lines to 4
+      } else if (words.length > 4) {
+        return 3; // More than 4 words, set max lines to 3
+      } else if (words.length > 2) {
+        return 2; // More than 2 words, set max lines to 2
+      } else {
+        return 1; // Less than or equal to 2 words, set max lines to 1
+      }
+    }
+
+    String splitItemName(String itemName, {int wordThreshold = 2}) {
+      List<String> words = itemName.split(' ');
+      if (words.length <= wordThreshold) {
+        return itemName;
+      } else {
+        int splitIndex = wordThreshold;
+        while (splitIndex < words.length &&
+            words.sublist(0, splitIndex).join(' ').length < itemName.length ~/ 2) {
+          splitIndex++;
+        }
+        return '${words.sublist(0, splitIndex).join(' ')}\n${words.sublist(splitIndex).join(' ')}';
+      }
+    }
+
+
     return Scaffold(
         appBar: AppBar(
           title: Text('List as shared preference'),
