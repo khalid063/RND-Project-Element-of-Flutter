@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
       title: 'RND Project Element of Flutter - Programming Ninja',
       //home: MyCalculatorFive(),
       home: AlarmNotificationScreen(),
+      //home: DigitalClock(),
     );
   }
 }
