@@ -13,9 +13,10 @@ class AlarmNotificationScreen extends StatefulWidget {
 class _AlarmNotificationScreenState extends State<AlarmNotificationScreen> {
 
   ///---------------------------- All Variables ----------///
-  late String _timeString; // show current time
-  // Create Time and Date Variables
-  TimeOfDay _timeOfDay = TimeOfDay(hour: 8, minute: 20);
+  /// show current time variables
+  late String _timeString;
+  /// Time Picker Variables
+  TimeOfDay _timeOfDay = TimeOfDay(hour:00, minute: 00);
 
   ///---------------------------- initState --------------///
   @override
@@ -42,6 +43,7 @@ class _AlarmNotificationScreenState extends State<AlarmNotificationScreen> {
   }
 
   ///--- Digital Local Time Function ---///
+  // it will show into the header top part
   void _getTime() {
     final DateTime now = DateTime.now();
     final String formattedTime = _formatDateTime(now);

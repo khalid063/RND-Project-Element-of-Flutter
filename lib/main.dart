@@ -5,6 +5,8 @@ import 'package:rnd_project_element_of_flutter/rnd_folder_01/Digital%20Clock/dig
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/Digital%20Clock/digital_clock_dhaka_and_makka.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/Digital%20Clock/hour_and_minute_makka_time.dart';
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/alarm_notification/alarm_nitification.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/alarm_notification/alarm_notification_three.dart';
+import 'package:rnd_project_element_of_flutter/rnd_folder_01/alarm_notification/alart_notification_two.dart';
 
 
 
@@ -31,12 +33,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'RND Project Element of Flutter - Programming Ninja',
       //home: MyCalculatorFive(),
-      home: AlarmNotificationScreen(),
-      //home: DigitalClock(),
+      //home: AlarmNotificationScreen(),
+      //home: AlarmNotificationScreenThree(),
+      home: AlarmNotificationScreenThree(),
     );
   }
 }
