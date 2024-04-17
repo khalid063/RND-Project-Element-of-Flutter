@@ -82,9 +82,7 @@ class _AlarmNotificationScreenTwoState extends State<AlarmNotificationScreenTwo>
     //playAlarmSound();
   }
 
-  // void stopAlarmSound() async {
-  //   await audioPlayer.stop();
-  // }
+
 
 
 
@@ -219,6 +217,7 @@ class _AlarmNotificationScreenTwoState extends State<AlarmNotificationScreenTwo>
               onPressed: () {
                 print("Close button pressed");
                 Navigator.of(context).pop();
+                stopAlarmSound();
                 //stopAlarmSound();
                 // Close the popup
                 // Navigator.of(context).pop();
@@ -292,7 +291,8 @@ class _AlarmNotificationScreenTwoState extends State<AlarmNotificationScreenTwo>
               }
             },
             //child: SvgPicture.asset('assets/images/eye_hide_icon.svg'),
-            child: SvgPicture.asset('assets/images/eye_hide_icon.svg'),
+            //child: SvgPicture.asset('assets/images/eye_hide_icon.svg'),
+            child: Text('Pick Alarm Time'),
           ),
           SizedBox(height: 30,),
           ElevatedButton(onPressed: (){
@@ -310,6 +310,24 @@ class _AlarmNotificationScreenTwoState extends State<AlarmNotificationScreenTwo>
     String audioPath = "audio/alart_sound_two.wav";
     await player.play(AssetSource(audioPath));
   }
+
+  void stopAlarmSound() async {
+    if (player != null) {
+      await player.stop();
+    }
+  }
+
+  //
+  // void stopAlarmSound() async {
+  //   String audioPath = "audio/alart_sound_two.wav";
+  //   if (audioPlayer != null) {
+  //     await audioPlayer.stop();
+  //   }
+  //   // await player.stop(AssetSource(audioPath));
+  //   //await audioPlayer.stop();
+  // }
+
+
 }
 
 // class Sound {
