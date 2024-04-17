@@ -13,8 +13,11 @@ class DigitalClock extends StatefulWidget {
 }
 
 class _DigitalClockState extends State<DigitalClock> {
+
+  ///--- All variables ---///
   late String _timeString;
 
+  ///--- initState ---///
   @override
   void initState() {
     _timeString = _formatDateTime(DateTime.now());
