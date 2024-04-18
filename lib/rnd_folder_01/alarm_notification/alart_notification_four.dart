@@ -12,14 +12,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 
 
-class AlarmNotificationScreenTwo extends StatefulWidget {
-  const AlarmNotificationScreenTwo({Key? key}) : super(key: key);
+class AlarmNotificationScreenFour extends StatefulWidget {
+  const AlarmNotificationScreenFour({Key? key}) : super(key: key);
 
   @override
-  State<AlarmNotificationScreenTwo> createState() => _AlarmNotificationScreenTwoState();
+  State<AlarmNotificationScreenFour> createState() => _AlarmNotificationScreenFourState();
 }
 
-class _AlarmNotificationScreenTwoState extends State<AlarmNotificationScreenTwo> {
+class _AlarmNotificationScreenFourState extends State<AlarmNotificationScreenFour> {
 
   ///=============================== all variables =============================///
 
@@ -87,8 +87,8 @@ class _AlarmNotificationScreenTwoState extends State<AlarmNotificationScreenTwo>
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Alarm"),
-          content: Text("Time's up!"),
+          title: const Text("Alarm"),
+          content: const Text("Time's up!"),
           actions: <Widget>[
             ElevatedButton(
               onPressed: () {
@@ -100,7 +100,7 @@ class _AlarmNotificationScreenTwoState extends State<AlarmNotificationScreenTwo>
                 // Navigator.of(context).pop();
                 // You can implement your alarm off logic here
               },
-              child: Text("Close"),
+              child: const Text("Close"),
             ),
           ],
         );
