@@ -6,6 +6,8 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:rnd_project_element_of_flutter/rnd_folder_01/print_pdf/pdf_example_1/preview_screen.dart';
 import 'package:flutter/services.dart';
 
+
+
 class PrintPdf extends StatefulWidget {
   const PrintPdf({super.key});
 
@@ -26,7 +28,10 @@ class _PrintPdfState extends State<PrintPdf> {
         pageFormat: PdfPageFormat.a4,
         build: (pw.Context context) {
           return pw.Center(
-            child: pw.Text('Hello Delta Group'),
+            child: pw.Text(
+              'Hello Delta Group',
+              style: pw.TextStyle(fontSize: 50), // Set font size to 40
+            ),
           );
         }
       )

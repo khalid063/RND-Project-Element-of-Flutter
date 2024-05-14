@@ -41,6 +41,7 @@ dependencies:
   shared_preferences: ^2.2.2
   get: ^4.6.6
   printing: ^5.11.1
+  bluetooth_print: ^4.3.0
   intl: ^0.17.0
   timezone: ^0.7.0
   alarm: ^3.0.14

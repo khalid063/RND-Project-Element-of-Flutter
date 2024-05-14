@@ -17,7 +17,7 @@ class LeftArrowDropDownScreen extends StatelessWidget {
             icon: Icon(Icons.arrow_drop_down), // Icon on the left side
             iconSize: 24,
             elevation: 16,
-            style: TextStyle(color: Colors.deepPurple),
+            style: const TextStyle(color: Colors.deepPurple),
             underline: null, // Removes the underline
             onChanged: (String? newValue) {
               // Add your onChanged logic here
